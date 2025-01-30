@@ -8,11 +8,6 @@ __pycache__/
 venv/
 .env/
 
-# Generated items
-*.xlsx
-*.png
-*.jpg
-
 # Data files
 *.csv
 
