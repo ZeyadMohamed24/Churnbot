@@ -12,7 +12,6 @@ venv/
 *.xlsx
 *.png
 *.jpg
-*.mmd
 
 # Data files
 *.csv
@@ -34,10 +33,6 @@ venv/
 *.pid
 *.sock
 *.log
-
-# Documentation files
-*.docx
-*.pdf
 
 # Dependency directories
 pip-wheel-metadata/
