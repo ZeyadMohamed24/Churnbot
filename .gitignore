@@ -9,7 +9,8 @@ venv/
 .env/
 
 # Data files
-*.csv
+data/processed/
+# *.csv
 
 # Model files
 *.pkl
