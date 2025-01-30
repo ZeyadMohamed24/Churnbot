@@ -12,6 +12,7 @@ venv/
 *.xlsx
 *.png
 *.jpg
+*.mmd
 
 # Data files
 *.csv
