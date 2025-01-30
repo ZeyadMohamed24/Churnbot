@@ -51,7 +51,7 @@ This project aims to predict customer churn using machine learning techniques.
 
 ## If you want to check the api
 Open swagger from this link:
-    ```bash
+    ```
     http://127.0.0.1:8000/docs
     ```    
 ## You can also run a single program
