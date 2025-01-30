@@ -1,0 +1,45 @@
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment
+venv/
+.env/
+
+# Generated items
+*.xlsx
+*.png
+*.jpg
+
+# Data files
+*.csv
+
+# Model files
+*.pkl
+*.joblib
+
+# Logs
+*.log
+
+# Configuration files
+*.ini
+*.conf
+
+.vscode/
+
+# FastAPI / Uvicorn
+*.pid
+*.sock
+*.log
+
+# Documentation files
+*.docx
+*.pdf
+
+# Dependency directories
+pip-wheel-metadata/
+
+# Setup folder
+customer_churn_prediction.egg-info
