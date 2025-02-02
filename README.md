@@ -1,79 +1,122 @@
-# Customer Churn Prediction
+# ChurnBot
 
-This project aims to predict customer churn using machine learning techniques.
+An AI-powered marketing assistant for **churn prediction** and **customer insights**, integrating a **churn classification model** with an **LLM-powered chatbot** for actionable marketing analytics.
 
-## Folder Structure
+## Table of Contents
+1. [Overview](#1-overview)
+2. [Project Structure](#2-project-structure)
+3. [Installation](#3-installation)
+4. [Usage](#4-usage)
+5. [Data](#5-data)
+6. [Model](#6-model)
+7. [Results](#7-results)
+---
 
-- **data/**: Stores all data files.
-- **docs/**: Contains project documentation files.
-- **models/**: Trained model files.
-- **notebooks/**: Jupyter notebooks for EDA and experimentation.
-- **reports/**: Generated reports and visualizations.
-- **src/**: Source code for data processing, feature engineering, model training, and visualization.
-- **venv/**: Virtual Environment files.
+## 1. Overview
+**ChurnBot** helps **predict customer churn** using a combination of:
+- **Churn Classification Model**: Identifies customers at risk of leaving.
+- **LLM-powered Chatbot**: Converts marketing queries into structured data insights.
+- **Streamlit Interface**: Provides an interface to chat.
 
-## Setup Instructions
+## 2. Project Structure
+```
+.
+├── data/                      # Data files
+│   ├── raw/                   # Raw data
+│   └── processed/             # Processed/cleaned data
+├── src/                      # Source code
+│   ├── api/                  # API-related code
+│   │   ├── app.py            # Main API application
+│   │   ├── utils.py          # Utility functions for the API
+│   │   └── feature_extraction_from_text.py  # Feature extraction for text
+│   ├── app/                  # Application-related code
+│   │   └── app.py            # Streamlit application
+│   ├── config/               # Configuration files
+│   │   └── paths.py          # Path configurations
+│   ├── data/                 # Data-related code
+│   │   └── data_cleaning.py  # Data cleaning scripts
+│   ├── features/             # Feature engineering code
+│   │   └── feature_engineering.py  # Feature engineering scripts
+│   ├── models/               # Model-related code
+│   │   └── train_model.py    # Model training scripts
+│   ├── scripts/              # Scripts for various tasks
+│   │   └── predict.py        # Prediction scripts
+│   ├── visualization/        # Visualization-related code
+│   │   └── visuals.py        # Visualization scripts
+│   └── main.py               # Main program file
+├── models/              # Generated Models
+├── reports/          # Generated reports and visualizations
+│   ├── plots/
+│   ├── metrics.csv
+│   ├── predictions.csv 
+├── docs/             # Documentation & diagrams
+├── requirements.txt  # Dependencies
+├── README.md         # Project documentation
+├── setup.py          # Project setup
+├── .gitignore        # Files and directories to ignore
+```
 
-1. Create a virtual environment:
-    ```bash
-    python -m venv venv
-    source .\venv\Scripts\activate
-    ```
+## 3. Installation
+### Prerequisites
+- Python 3.5+
+- Ollama: This project requires Ollama to interact with open-source language models. You can download it from [Ollama's official website](https://ollama.com/).
+- Virtual environment (optional but recommended)
 
-2. Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Steps
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/churnbot.git
+cd churnbot
 
-3. Install setup:
-    ```bash
-    pip install -e .
-    ```
+# Create and activate a virtual environment
+python -m venv venv
+.\venv\Scripts\activate  # On Mac use `source venv/bin/activate`
 
-4. Run the main program:
-    ```bash
-    run_main
-    ```
+# Install dependencies
+pip install -r requirements.txt
 
-5. Start Ollama:
-    ```bash
-    ollama serve
-    ```  
-6. Run the Fast API:
-    ```bash
-    uvicorn src.api.app:app --reload
-    ```  
+# Setup
+pip install -e .
+```
 
-7. Launch the streamlit application:
-    ```bash
-    streamlit run src/app/app.py
-    ```    
+## 4. Usage
+### Run the main file
+```bash
+run_main
+```
 
-## If you want to check the api
-Open swagger from this link:
-    ```
-    http://127.0.0.1:8000/docs
-    ```    
-## You can also run a single program
+### Run Ollama
+```bash
+ollama serve ( You can check it using "Ollama run llama3" )
+```
 
-Run data cleaning script:
-    ```
-    clean_data
-    ```
+### Running the API
+```bash
+uvicorn src.api.app:app --reload
+```
 
-Engineer Features:
-    ```
-    engineer_features
-    ```
+### Starting the Streamlit Application
+```bash
+streamlit run src/app/app.py
+```
 
-Train the model:
-    ```
-    train_model
-    ```
 
-Predict churn from testing data:
-    ```
-    predict
-    ```    
+## 5. Data
+- **Source**: https://www.kaggle.com/datasets/muhammadshahidazeem/customer-churn-dataset?select=customer_churn_dataset-training-master.csv
+- **Features**: Age, Gender, Tenure, Usage Frequency, Support Calls, Payment Delay, Subscription Type, Contract Length, Total Spend, Last Interaction
+- **Preprocessing**: handling missing values, duplicates, redundant columns, encoding categorical variables and scaling numerical features. 
 
-<p style="color:red;font-size:20px">If an internal server error occurs try: </p>Ollama run llama3  
+## 6. Model
+- **Algorithm**: XGBoost
+- **Evaluation Metrics**: Accuracy, Precision, Recall, F1-score
+
+## 7. Results
+Example results from the churn classification model:
+```
+Accuracy: 97%
+Precision: 99%
+Recall: 96%
+F1-score: 97%   
+```
+**Confusion Matrix:**  
+![Confusion Matrix](reports/plots/confusion_matrix.png)
