@@ -4,7 +4,7 @@ import re
 
 
 def extract_specific_features(user_text):
-    """Extracts key customer features from text using GLiNER model with enhanced performance and accuracy."""
+    """Extracts key customer features from text using GLiNER model."""
 
     SUBSCRIPTION_PATTERN = re.compile(r"\b(standard|basic|premium)\b", re.IGNORECASE)
     SPEND_PATTERN = re.compile(
