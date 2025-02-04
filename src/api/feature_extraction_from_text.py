@@ -6,6 +6,7 @@ import re
 def extract_specific_features(user_text):
     """Extracts key customer features from text using GLiNER model."""
 
+    model = GLiNER.from_pretrained("urchade/gliner_mediumv2.1")
     SUBSCRIPTION_PATTERN = re.compile(r"\b(standard|basic|premium)\b", re.IGNORECASE)
     SPEND_PATTERN = re.compile(
         r"(\d{1,3}(?:,\d{3})*|\d+)(?:\.\d+)?\s*(?:dollars?|usd|€|\$|euro|a year|per year)",
@@ -25,7 +26,6 @@ def extract_specific_features(user_text):
         "Total Spend": "numeric",
         "Last Interaction": "numeric",
     }
-    model = GLiNER.from_pretrained("urchade/gliner_mediumv2.1")
     labels = list(ACCEPTED_VALUES.keys())
     truncated_text = user_text[:512]  
     entities = model.predict_entities(truncated_text, labels, threshold=0.3)
