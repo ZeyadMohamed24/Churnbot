@@ -65,7 +65,7 @@ An AI-powered marketing assistant for **churn prediction** and **customer insigh
 ### Steps
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/churnbot.git
+git clone [https://github.com/yourusername/churnbot.git](https://github.com/ZeyadMohamed24/Churnbot.git]
 cd churnbot
 
 # Create and activate a virtual environment
